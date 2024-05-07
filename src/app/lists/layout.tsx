@@ -13,10 +13,15 @@ export default async function HomePage({
   const lists = await getListsFromServer();
 
   return (
-    <div>
-      <div className="flex flex-col space-y-2">
+    <div className="flex flex-row">
+      <div className="flex flex-col gap-10 p-20 space-y-2 border-2 items-center inset-y-0 left-0 h-dvh w-1/4 bg-slate-50 text-gray-500 text-2xl">
         {lists.map((list) => (
-          <Link href={`/lists/${list.id}`}>{list.name}</Link>
+          <Link
+            href={`/lists/${list.id}`}
+            className="text-center font-bold hover:text-gray-600"
+          >
+            {list.name}
+          </Link>
         ))}
       </div>
       {children}
