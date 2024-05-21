@@ -1,3 +1,3 @@
 export default async function HomePage() {
-  return <div>Please select a list </div>;
+  return <div className="text-slate-400">Please select a list</div>;
 }
