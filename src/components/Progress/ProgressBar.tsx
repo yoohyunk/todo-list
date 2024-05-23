@@ -18,9 +18,17 @@ export const ProgressBar = async ({ listId }: progressBarProps) => {
   const percent = calculatePercentTodo({ tasks: tasks.items });
 
   return (
-    <div className="progress-bar">
-      {Number(percent) >= 99.99 ? `Completed 👏` : `Completion ${percent} %`}
-      <div className="width: `${percent}%` } bg-red-200"></div>
+    <div className="w-full h-5">
+      <div className="w-full max-w-xl p-4">
+        <div className="w-full bg-gray-300 rounded-full h-6">
+          <div
+            className="bg-cyan-900 h-6 rounded-full"
+            style={{
+              width: `${percent}%`,
+            }}
+          ></div>
+        </div>
+      </div>
     </div>
   );
 };

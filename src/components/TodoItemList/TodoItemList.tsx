@@ -19,11 +19,22 @@ const getTasks = async (listId: string) => {
 export const TodoItemList = async ({ listId }: TodoItemListProps) => {
   const tasks = await getTasks(listId);
 
+  // sort tasks by status
+  tasks.items.sort((a, b) => {
+    if (a.status === "done" && b.status === "todo") {
+      return 1;
+    }
+    if (a.status === "todo" && b.status === "done") {
+      return -1;
+    }
+    return 0;
+  });
+
   return (
     <>
       <div className="space-y-4 w-3/5">
         <div className="flex justify-between">
-          <h1 className="text-3xl font-bold text-gray-500">{tasks.listName}</h1>
+          <h1 className="text-3xl mb-4 text-slate-600">{tasks.listName}</h1>
           <AddTodoForm listId={listId} />
         </div>
         <div className="p-2 rounded text-gray-600">

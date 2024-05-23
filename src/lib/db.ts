@@ -1,3 +1,8 @@
+export type User = {
+  id: string;
+  name: string;
+};
+
 export type List = {
   id: string;
   name: string;
@@ -8,6 +13,11 @@ export type Task = {
   name: string;
   status: "todo" | "done";
   listId: string;
+};
+
+const user: User = {
+  id: "1",
+  name: "John Doe",
 };
 
 const lists: List[] = [
@@ -57,8 +67,13 @@ const tasks: Task[] = [
 ];
 
 const defaultData = {
+  user,
   tasks,
   lists,
+};
+
+export const getUserName = () => {
+  return user.name;
 };
 
 export const getLists = async () => {
@@ -76,4 +91,8 @@ export const updateTodoItem = (taskId: string, newStatus: "done" | "todo") => {
   const taskIdx = tasks.findIndex((task) => task.id === taskId);
   tasks[taskIdx].status = newStatus;
   console.log(tasks);
+};
+
+export const changeUserName = (user: User, newName: Partial<User>): User => {
+  return { ...user, ...newName };
 };

@@ -7,7 +7,7 @@ export async function ListPage() {
   const lists = await getListsFromServer();
 
   return (
-    <div className="p-4 pt-12 bg-slate-50 text-gray-500 text-2xl border border-slate-900 rounded-xl h-full">
+    <div className="p-4  text-sky-700 text-2xl rounded-xl h-full flex flex-col gap-3">
       <AddListForm />
       {lists.map((list) => (
         <ListRow
