@@ -32,8 +32,8 @@ export const TodoItemList = async ({ listId }: TodoItemListProps) => {
 
   return (
     <>
-      <div className="space-y-4 w-3/5">
-        <div className="flex justify-between">
+      <div className="space-y-0 w-full mb:space-y-4 mb:w-3/5">
+        <div className="flex flex-col mb:justify-between gap-2">
           <h1 className="text-3xl mb-4 text-slate-600">{tasks.listName}</h1>
           <AddTodoForm listId={listId} />
         </div>

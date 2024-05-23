@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { addNewList } from "./actions";
-import { PlusIcon } from "@heroicons/react/24/outline";
 
 export const AddListForm = () => {
   const [newListName, setNewListName] = useState("");
@@ -21,13 +20,13 @@ export const AddListForm = () => {
         placeholder="Add New List"
         value={newListName}
         onChange={(e) => setNewListName(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded-2xl"
+        className="w-full p-2 border border-gray-300 rounded-2xl text-sm md:text-md"
       />
       <button
         type="submit"
         className=" bg-blue-950 text-white px-4 py-2 rounded-3xl "
       >
-        <PlusIcon className="h-6 w-6 text-white" aria-hidden="true" />
+        +
       </button>
     </form>
   );
